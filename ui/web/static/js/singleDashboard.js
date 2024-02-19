@@ -83,7 +83,6 @@ function saveLayout(grid, dashboardID) {
 
   const gridState = {
     items: itemData,
-    layout: grid._layout,
     settings: {
       dragEnabled: grid._settings.dragEnabled,
       // Add other relevant settings if needed
@@ -154,7 +153,7 @@ function loadLayout(savedLayout) {
     }
 
     // Layout the grid
-    grid.layout(gridState.layout);
+    grid.layout();
   } catch (error) {
     console.error("Error loading grid state:", error);
   }
@@ -192,7 +191,7 @@ function editGrid(grid, layout) {
           grid.add(newItem);
           resizeObserver.observe(newItem);
         });
-        grid.layout(gridState.layout);
+        grid.layout();
       }
     }
   } catch (error) {
